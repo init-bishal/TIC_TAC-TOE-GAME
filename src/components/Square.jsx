@@ -1,9 +1,8 @@
-
 import logo from '../../public/vite.svg'
-const Square = (props) => {
+const Square = ({value,clickIt}) => {
   return (
-    <button type="button" className='square'>
-       {props.value}
+    <button type="button" className='square' onClick={clickIt} >
+       {value}
     </button>
   )
 }
