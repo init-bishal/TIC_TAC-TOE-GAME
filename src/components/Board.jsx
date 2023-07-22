@@ -1,25 +1,6 @@
-import { useState } from 'react'
 import Square from './Square'
-const Board = () => {
-  const [squares, setSquares]=useState(Array(9).fill(null))
-   const handleSquareClick=(position)=>{
-      console.log(`you clickedn ${position}`)
-      console.log(squares)
-      setSquares((current)=>{
-          return current.map((i,pos)=>{
-                if(pos==position)
-                {
-                  return 'x'
-                }
-                return i
-          })
-      })
-
-
-
-
-
-   }
+const Board = ({squares,handleSquareClick}) => {
+   
    const renderSquare=(position)=>{
     return(
       <Square value={squares[position]} clickIt={()=>{handleSquareClick(position)}}/>
@@ -28,6 +9,7 @@ const Board = () => {
    }
   return (
     <div className='board'>
+
         <div className='board-row'>
             {renderSquare(0)}
             {renderSquare(1)}
