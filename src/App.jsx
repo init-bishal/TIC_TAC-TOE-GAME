@@ -4,8 +4,9 @@ import {calculateWinner} from './components/winner'
 import { useState } from 'react'
 import StatusMessage from './components/StatusMessage'
 import History from './components/History'
+const NEW_GAME=[{squares:Array(9).fill(null),isXNext:false}]
 function App() {
-  const [history,setHistory]=useState([{squares:Array(9).fill(null),isXNext:false }])
+  const [history,setHistory]=useState(NEW_GAME)
   const [currentMove,setCurrentMove]=useState(0)
   const gamingBoard=history[currentMove]
   const winner=calculateWinner(gamingBoard.squares)
@@ -36,12 +37,22 @@ function App() {
   const moveTo=(move)=>{
        setCurrentMove(move)
   }
+  const onNewGameStart=()=>{
+    setHistory(NEW_GAME)
+    setCurrentMove(0)
+
+  }
   return (
     <div className='app' >
       <StatusMessage winner={winner} gamingBoard={gamingBoard}/>
       {/* {winner?<h2>Winner is {winner}</h2>:<h2>Next player is {isXNext?'O':'X'}</h2>} */}
       <Board squares={gamingBoard.squares} handleSquareClick={handleSquareClick} />
       <h2>Current game history</h2>
+      <button type="button" className=
+      {
+        `btn-reset ${winner ? 'active':'' }`
+      }
+       onClick={onNewGameStart}>Start new game</button>
       <History history={history} moveTo={moveTo} currentMove={currentMove}/>
     </div>
   )
