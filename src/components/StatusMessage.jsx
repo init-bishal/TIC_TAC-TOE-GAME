@@ -1,6 +1,7 @@
 import React from 'react'
 import Square from './Square'
-const StatusMessage = ({winner, isXNext,squares}) => {
+const StatusMessage = ({winner, gamingBoard}) => {
+  const {squares,isXNext}=gamingBoard
   const noNodesLeft=squares.every(i=>i!=null )
   const renderStatusMessage=()=>{
        if(winner)
@@ -14,7 +15,7 @@ const StatusMessage = ({winner, isXNext,squares}) => {
        }
        else if(!winner && !noNodesLeft)
        {
-         return (<h2 className='status-message'>Next player is <span className={isXNext?'text-orange':'text-green'}>{isXNext ? 'O' :'X' }</span></h2>)
+         return (<h2 className='status-message'>Next player is <span className={isXNext?'text-orange':'text-green'}>{isXNext ? 'X' :'O' }</span></h2>)
        }
   }
   return (
@@ -22,7 +23,7 @@ const StatusMessage = ({winner, isXNext,squares}) => {
       {renderStatusMessage()}
       {/* {winner && <h2>Winner is {winner}</h2>}
       {!winner && noNodesLeft && <h2>Game is Draw</h2>}
-      {!winner && !noNodesLeft && <h2>Next player is {isXNext ? 'O' : 'X'}</h2>} */}
+       {!winner && !noNodesLeft && <h2>Next player is {isXNext ? 'O' : 'X'}</h2>} */}
     </>
   )
 }
