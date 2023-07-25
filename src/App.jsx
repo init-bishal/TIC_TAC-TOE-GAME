@@ -4,6 +4,7 @@ import {calculateWinner} from './components/winner'
 import { useState } from 'react'
 import StatusMessage from './components/StatusMessage'
 import History from './components/History'
+import { normalizePath } from 'vite'
 const NEW_GAME=[{squares:Array(9).fill(null),isXNext:false}]
 function App() {
   const [history,setHistory]=useState(NEW_GAME)
@@ -44,20 +45,15 @@ function App() {
   }
   return (
     <div className='app' >
+      <h1><span className='text-orange'>TIC</span> <span >TAC</span> <span className='text-green' >TOE</span></h1>
       <StatusMessage winner={winner} gamingBoard={gamingBoard}/>
-      {/* {winner?<h2>Winner is {winner}</h2>:<h2>Next player is {isXNext?'O':'X'}</h2>} */}
+
       <Board squares={gamingBoard.squares} handleSquareClick={handleSquareClick} winnerSquares={winnerSquares}/>
-      <h2>Current game history</h2>
-      <button type="button" className=
-      {
-        `btn-reset 
-        
-        ${winner ? 'active':'' }`
-      }
+      <h2 style={{fontWeight:'normal' }}>Current game history</h2>
+      <button type="button" className={`btn-reset ${winner ? 'active':'' }`}
        onClick={onNewGameStart}>Start new game</button>
       <History history={history} moveTo={moveTo} currentMove={currentMove}/>
     </div>
   )
 }
-
 export default App

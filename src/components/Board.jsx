@@ -5,8 +5,7 @@ const Board = ({squares,handleSquareClick,winnerSquares}) => {
     const isWinningSquare=winnerSquares.includes(position)
     return(
       <Square value={squares[position]} isWinningSquare={isWinningSquare} clickIt={()=>{handleSquareClick(position)}}/>
-    )
-         
+    )    
    }
   return (
     <div className='board'>
