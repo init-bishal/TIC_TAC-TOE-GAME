@@ -15,7 +15,7 @@ const StatusMessage = ({winner, gamingBoard}) => {
        }
        else if(!winner && !noNodesLeft)
        {
-         return (<h2 className='status-message'>Next player is <span className={isXNext?'text-orange':'text-green'}>{isXNext ? 'X' :'O' }</span></h2>)
+         return (<h2 className='status-message'>Next player is <span className={isXNext?'text-green':'text-orange'}>{isXNext ? 'X' :'O' }</span></h2>)
        }
   }
   return (

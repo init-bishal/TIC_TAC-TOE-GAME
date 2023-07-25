@@ -14,8 +14,14 @@ export function calculateWinner(square){
          let  [a,b,c]=lines[i]
          if(square[a]==square[b] && square[b]==square[c])
          {
-            return square[a]
+            return {
+                winner:square[a], 
+                winnerSquares:[a,b,c]
+            } 
          }
     }
-    return null 
+    return {
+        winner:null , 
+        winnerSquares:[]
+    } 
 }
