@@ -4,7 +4,6 @@ import {calculateWinner} from './components/winner'
 import { useState } from 'react'
 import StatusMessage from './components/StatusMessage'
 import History from './components/History'
-import { normalizePath } from 'vite'
 const NEW_GAME=[{squares:Array(9).fill(null),isXNext:false}]
 function App() {
   const [history,setHistory]=useState(NEW_GAME)
